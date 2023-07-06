@@ -1,0 +1,202 @@
+{
+    "openapi" : "3.0.0",
+    "servers" : [ {
+      "description" : "SwaggerHub API Auto Mocking",
+      "url" : "https://virtserver.swaggerhub.com/SAJALMITRA_1/LoR/1.0.0"
+    },
+    {
+      "description" : "LOR",
+      "url" : "https://laingorourke.com"
+    }  
+    ],
+    "info" : {
+      "description" : "This is a simple API",
+      "version" : "1.0.0.1",
+      "title" : "58456f44-5e8c-4a7f-be16-cdd13df62350",
+      "contact" : {
+        "email" : "you@your-company.com"
+      },
+      "license" : {
+        "name" : "Apache 2.0",
+        "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+    },
+    "tags" : [ {
+      "name" : "admins",
+      "description" : "Secured Admin-only calls"
+    }, {
+      "name" : "developers",
+      "description" : "Operations available to regular developers"
+    } ],
+    "paths" : {
+      "/Schema" : {
+        "get" : {
+          "tags" : [ "developers" ],
+          "summary" : "searches inventory",
+          "operationId" : "AUSourceSchema",
+          "description" : "By passing in the appropriate options, you can search for\navailable inventory in the system\n",
+          "responses" : {
+            "200" : {
+              "description" : "search results matching criteria",
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "type" : "array",
+                    "items" : {
+                      "$ref" : "#/components/schemas/MsgProperties"
+                    }
+                  }
+                }
+              }
+            },
+            "400" : {
+              "description" : "bad input parameter"
+            }
+          }
+        }
+      }
+    },
+    "components" : {
+      "schemas" : {
+        "MsgProperties" : {
+          "type" : "object",
+          "required" : [ "Identifier", "Canonical_Switch" ],
+          "properties" : {
+            "Identifier" : {
+              "type" : "string",
+              "format" : "uuid"
+            },
+            "Canonical_Switch" : {
+              "type" : "boolean"
+            },
+            "Url_for_3rd_party_service" : {
+              "type" : "string"
+            },
+            "Receiver_Addresses" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "Receiver_Address" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "SourceSchema" : {
+          "type" : "object",
+          "required" : [ "Name", "Description", "OpportunityId", "lor_LegalEntity", "a1a_PrimarySector", "AccountId", "Start_Date" ],
+          "properties": {
+            "Name": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            },
+            "OpportunityId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "lor_LegalEntity": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 20
+            },
+            "a1a_PrimarySector": {
+              "type": "string"
+            },
+            "AccountId": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 20
+            },
+            "Contract_Type": {
+              "type": "string"
+            },
+            "Start_Date": {
+              "type": "string",
+              "format": "date"
+            },
+            "E_mail": {
+              "type": "string",
+              "format": "email"
+            },
+            "Post_Code": {
+              "type": "string",
+              "pattern": "([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\\s?[0-9][A-Za-z]{2})"
+            }
+          }
+        },
+        "CanonicalSchema" : {
+          "type" : "object",
+          "required" : [ "LOR_Project_Name", "LOR_Project_Description", "Opportunity_Id", "Assigned_Legal_Entity", "Sector", "Org_Account_Id", "Contract_Type", "Contract_Form", "Procurement_Route" ],
+          "properties" : {
+            "LOR_Project_Name" : {
+              "type" : "string"
+            },
+            "LOR_Project_Description" : {
+              "type" : "string"
+            },
+            "Opportunity_Id" : {
+              "type" : "string",
+              "format" : "uuid"
+            },
+            "Assigned_Legal_Entity" : {
+              "type" : "string"
+            },
+            "Sector" : {
+              "type" : "string"
+            },
+            "Org_Account_Id" : {
+              "type" : "string"
+            },
+            "Contract_Type" : {
+              "type" : "string"
+            },
+            "Contract_Form" : {
+              "type" : "string"
+            },
+            "Procurement_Route" : {
+              "type" : "string"
+            }
+          }
+        },
+        "TargetSchema" : {
+          "type" : "object",
+          "required" : [ "Project_title", "Project_description", "Opportunity_Reference_ID", "Contract_assigned_to", "Sector", "Organisation_Name_OR_Client", "Contract_Type", "Form_of_Contract", "Procurement_Route" ],
+          "properties" : {
+            "Project_title" : {
+              "type" : "string"
+            },
+            "Project_description" : {
+              "type" : "string"
+            },
+            "Opportunity_Reference_ID" : {
+              "type" : "string",
+              "format" : "uuid"
+            },
+            "Contract_assigned_to" : {
+              "type" : "string"
+            },
+            "Sector" : {
+              "type" : "string"
+            },
+            "Organisation_Name_OR_Client" : {
+              "type" : "string"
+            },
+            "Contract_Type" : {
+              "type" : "string"
+            },
+            "Form_of_Contract" : {
+              "type" : "string"
+            },
+            "Procurement_Route" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  }
