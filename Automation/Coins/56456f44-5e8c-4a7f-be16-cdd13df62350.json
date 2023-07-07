@@ -1,0 +1,20 @@
+{
+	"tname": "coins",
+	"subscriptions": [{
+			"sname": "56456f44-5e8c-4a7f-be16-cdd13df62350",
+			"rules": [{
+				"rname": "56456f44-5e8c-4a7f-be16-cdd13df62350",
+				"filter_type": "SqlFilter",
+				"sql_filter_expression": "schema_id IN ('56456f44-5e8c-4a7f-be16-cdd13df62350'"
+			}]
+		},
+		{
+			"sname": "56456f44-5e8c-4a7f-be16-cdd13df62351",
+			"rules": [{
+				"rname": "56456f44-5e8c-4a7f-be16-cdd13df62351",
+				"filter_type": "SqlFilter",
+				"sql_filter_expression": "schema_id IN ('56456f44-5e8c-4a7f-be16-cdd13df62351'"
+			}]
+		}
+	]
+}
